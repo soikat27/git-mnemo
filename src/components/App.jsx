@@ -1,16 +1,24 @@
 import '../styles/App.css';
+import valueIcon from "../assets/value-icon.svg";
 import githubIcon from "../assets/github-icon.svg";
 import InfoDialog from './InfoDialog.jsx';
 import GameArea from './GameArea.jsx';
-
 
 export default function App() {
     return (
         <>
             <header>
-                <h1 className="logo">Logo</h1>
-                <h4 className="subtitle">subtitle goes here...</h4>
-                <InfoDialog />
+                <h1 className="logo">gitMnemo</h1>
+                <h4 className="subtitle">Train your Git reflexes. Build muscle memory.</h4>
+                <InfoDialog 
+                    btnName="Instruction"
+                    className="instruction dialog"
+                    title="How to play"
+                    body={["Click a card to score a point. After each click, the cards shuffle.", "Only click cards you haven’t clicked yet in this round. If you click one you’ve already chosen, the round ends and your score resets.", "Try to beat your Best score."]}
+                    tips="The order changes every time — remember the cards, not their positions."
+                    icon={valueIcon}
+                />
+                {/* <InfoDialog /> */}
             </header>
             <GameArea />
             <footer>
