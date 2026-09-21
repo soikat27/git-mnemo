@@ -14,7 +14,7 @@ export default function InfoDialog({btnName, className, title, body, tips=null, 
         <div className="info-dialog">
             <dialog className={className} ref={dialogRef}>
                 <h2>{title}</h2>
-                {body.map(line => <p className="line-item">{line}</p>)}
+                <p className="line-item">{body}</p>
                 {tips && <p>{tips}</p>}
 
                 <button className="dialog-close" onClick={closeDialog}>Close</button>
