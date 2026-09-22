@@ -1,5 +1,8 @@
-export default function GitCard() {
+export default function GitCard({command, description}) {
     return (
-        <div></div>
+        <div>
+            <h4>{command}</h4>
+            <p>{description}</p>
+        </div>
     );
 }
