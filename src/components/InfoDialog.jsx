@@ -15,7 +15,7 @@ export default function InfoDialog({btnName, className, title, body, tips=null, 
             <dialog className={className} ref={dialogRef}>
                 <h2>{title}</h2>
                 <p className="line-item">{body}</p>
-                {tips && <p>{tips}</p>}
+                {tips && <p><span className="tip-label">Tips: </span>{tips}</p>}
 
                 <button className="dialog-close" onClick={closeDialog}>Close</button>
             </dialog>

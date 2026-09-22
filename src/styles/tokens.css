@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'Jersey 25';
+  src: url('../assets/fonts/Jersey_25/Jersey25-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pixelify Sans';
+  src: url('../assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Surfaces — from app-bg slate */
+  --color-bg: #2f3643;
+  --color-surface: #1e242c;
+
+  /* Text */
+  --color-text: #e8ebe6;
+  --color-text-muted: #9aab9a;
+
+  /* Accent — brighter tree green from app-bg */
+  --color-accent: #5a8f3c;
+  --color-accent-hover: #6aa34a;
+  --color-accent-soft: color-mix(in srgb, var(--color-accent) 28%, transparent);
+  --color-on-accent: #f2f7ec;
+
+  /* Borders / soft glow */
+  --color-border: #4a5560;
+  --shadow-glow: 0 0 12px color-mix(in srgb, var(--color-accent) 40%, transparent);
+
+  /* Space */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Centered content — a bit wider */
+  --content-max: 62rem;
+  --space-content-x: 4.75rem;
+
+  /* Type — Jersey 25 body + Pixelify display */
+  --font-sans: 'Jersey 25', sans-serif;
+  --font-display: 'Pixelify Sans', 'Jersey 25', sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --text-logo: 1.75rem;
+  --text-subtitle: 1.05rem;
+  --text-body: 1.1rem;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  /* Dialog */
+  --color-dialog-bg: #1e242c;
+  --dialog-backdrop: rgba(20, 24, 28, 0.72);
+}
