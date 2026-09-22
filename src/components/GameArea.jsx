@@ -1,5 +1,6 @@
 import CardGrid from "./CardGrid.jsx";
 import ScoreBoard from "./ScoreBoard.jsx";
+import "../styles/GameArea.css";
 
 export default function GameArea() {
     return (
@@ -7,6 +8,5 @@ export default function GameArea() {
             <ScoreBoard />
             <CardGrid />
         </div>
-        
     );
 }

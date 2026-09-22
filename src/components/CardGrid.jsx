@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import GitCard from "./GitCard.jsx";
+import "../styles/CardGrid.css";
 
 export default function CardGrid() {
     const [commands, setCommands] = useState([]);
@@ -42,9 +43,16 @@ export default function CardGrid() {
     
 
     return (
-        <div>
+        <div className="card-grid">
             {
-                commands.map(command => <GitCard command={command.command} description={command.description} />)
+                commands.map(command => (
+                    <div className="card-grid__cell" key={command.command}>
+                        <GitCard
+                            command={command.command}
+                            description={command.description}
+                        />
+                    </div>
+                ))
             }
         </div>
     );

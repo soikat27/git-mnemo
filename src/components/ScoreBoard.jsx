@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/ScoreBoard.css";
 
 export default function ScoreBoard() {
     const [score, setScore] = useState(0);
@@ -18,11 +19,15 @@ export default function ScoreBoard() {
         <div className="score-board">
             <div className="score current">
                 <p>Score</p>
-                {formatScore(score).map(digit => <span className="digit">{digit}</span>)}
+                {formatScore(score).map((digit, i) => (
+                    <span className="digit" key={i}>{digit}</span>
+                ))}
             </div>
             <div className="score best">
                 <p>Best Score</p>
-                {formatScore(bestScore).map(digit => <span className="digit">{digit}</span>)}
+                {formatScore(bestScore).map((digit, i) => (
+                    <span className="digit" key={i}>{digit}</span>
+                ))}
             </div>
         </div>
     );

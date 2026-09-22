@@ -1,0 +1,63 @@
+.git-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.1rem, 2cqh, 0.4rem);
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 20% 18%;
+  background-color: var(--color-surface);
+  background-image: url("../assets/card-bg.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  transition: filter 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.git-card:hover {
+  filter: brightness(1.06);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.4),
+    var(--shadow-glow);
+}
+
+.git-card:active {
+  transform: translateY(1px);
+}
+
+.git-card__command {
+  margin: 0;
+  max-width: 100%;
+  font-family: var(--font-display);
+  font-size: clamp(0.45rem, 9cqmin, 0.8rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  color: var(--color-text);
+  border-bottom: 1.5px solid var(--color-accent);
+  padding-bottom: clamp(0.1rem, 1.5cqh, 0.25rem);
+}
+
+.git-card__description {
+  margin: 0;
+  max-width: 100%;
+  font-family: var(--font-sans);
+  font-size: clamp(0.35rem, 6.5cqmin, 0.65rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--color-text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

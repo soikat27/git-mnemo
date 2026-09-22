@@ -1,0 +1,19 @@
+.game-area {
+  box-sizing: border-box;
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--space-md) var(--space-content-x);
+  container-type: size;
+}
+
+@media (max-width: 640px) {
+  .game-area {
+    padding-inline: var(--space-lg);
+  }
+}
