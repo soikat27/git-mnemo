@@ -1,0 +1,352 @@
+[
+  {
+    "ID": 1,
+    "Command": "git init",
+    "Category": "Basics",
+    "Description": "Create an empty Git repository or reinitialize an existing one",
+    "Example": "git init"
+  },
+  {
+    "ID": 2,
+    "Command": "git clone",
+    "Category": "Basics",
+    "Description": "Clone a repository into a new directory",
+    "Example": "git clone https://github.com/u/r.git"
+  },
+  {
+    "ID": 3,
+    "Command": "git add",
+    "Category": "Basics",
+    "Description": "Add file contents to the staging area",
+    "Example": "git add ."
+  },
+  {
+    "ID": 4,
+    "Command": "git status",
+    "Category": "Basics",
+    "Description": "Show the working tree status",
+    "Example": "git status"
+  },
+  {
+    "ID": 5,
+    "Command": "git commit",
+    "Category": "Basics",
+    "Description": "Record staged changes to the repository",
+    "Example": "git commit -m \"message\""
+  },
+  {
+    "ID": 6,
+    "Command": "git diff",
+    "Category": "Basics",
+    "Description": "Show changes between commits and the working tree",
+    "Example": "git diff"
+  },
+  {
+    "ID": 7,
+    "Command": "git rm",
+    "Category": "Basics",
+    "Description": "Remove files from the working tree and the index",
+    "Example": "git rm file.txt"
+  },
+  {
+    "ID": 8,
+    "Command": "git mv",
+    "Category": "Basics",
+    "Description": "Move or rename a file, directory, or symlink",
+    "Example": "git mv old.txt new.txt"
+  },
+  {
+    "ID": 9,
+    "Command": "git grep",
+    "Category": "Basics",
+    "Description": "Print lines matching a pattern in tracked files",
+    "Example": "git grep \"TODO\""
+  },
+  {
+    "ID": 10,
+    "Command": "git ls-files",
+    "Category": "Basics",
+    "Description": "Show information about files in the index and working tree",
+    "Example": "git ls-files"
+  },
+  {
+    "ID": 11,
+    "Command": "git ls-tree",
+    "Category": "Basics",
+    "Description": "List the contents of a tree object",
+    "Example": "git ls-tree HEAD"
+  },
+  {
+    "ID": 12,
+    "Command": "git archive",
+    "Category": "Basics",
+    "Description": "Create an archive of files from a named tree",
+    "Example": "git archive -o repo.zip HEAD"
+  },
+  {
+    "ID": 13,
+    "Command": "git log",
+    "Category": "History",
+    "Description": "Show commit logs",
+    "Example": "git log --oneline"
+  },
+  {
+    "ID": 14,
+    "Command": "git show",
+    "Category": "History",
+    "Description": "Show various types of objects such as commits",
+    "Example": "git show HEAD"
+  },
+  {
+    "ID": 15,
+    "Command": "git shortlog",
+    "Category": "History",
+    "Description": "Summarize git log output by author",
+    "Example": "git shortlog -sn"
+  },
+  {
+    "ID": 16,
+    "Command": "git blame",
+    "Category": "History",
+    "Description": "Show what revision and author last changed each line",
+    "Example": "git blame file.txt"
+  },
+  {
+    "ID": 17,
+    "Command": "git reflog",
+    "Category": "History",
+    "Description": "Manage the record of updates to branch tips",
+    "Example": "git reflog"
+  },
+  {
+    "ID": 18,
+    "Command": "git bisect",
+    "Category": "History",
+    "Description": "Use binary search to find the commit that introduced a bug",
+    "Example": "git bisect start"
+  },
+  {
+    "ID": 19,
+    "Command": "git describe",
+    "Category": "History",
+    "Description": "Give a commit a human readable name based on a ref",
+    "Example": "git describe --tags"
+  },
+  {
+    "ID": 20,
+    "Command": "git difftool",
+    "Category": "History",
+    "Description": "Show changes using common external diff tools",
+    "Example": "git difftool"
+  },
+  {
+    "ID": 21,
+    "Command": "git range-diff",
+    "Category": "History",
+    "Description": "Compare two commit ranges",
+    "Example": "git range-diff main..feature"
+  },
+  {
+    "ID": 22,
+    "Command": "git rev-list",
+    "Category": "History",
+    "Description": "List commit objects in reverse chronological order",
+    "Example": "git rev-list HEAD"
+  },
+  {
+    "ID": 23,
+    "Command": "git branch",
+    "Category": "Branching",
+    "Description": "List, create, or delete branches",
+    "Example": "git branch -a"
+  },
+  {
+    "ID": 24,
+    "Command": "git checkout",
+    "Category": "Branching",
+    "Description": "Switch branches or restore working tree files",
+    "Example": "git checkout -b feature"
+  },
+  {
+    "ID": 25,
+    "Command": "git switch",
+    "Category": "Branching",
+    "Description": "Switch to another branch",
+    "Example": "git switch main"
+  },
+  {
+    "ID": 26,
+    "Command": "git merge",
+    "Category": "Branching",
+    "Description": "Join two or more development histories together",
+    "Example": "git merge feature"
+  },
+  {
+    "ID": 27,
+    "Command": "git mergetool",
+    "Category": "Branching",
+    "Description": "Run tools to resolve merge conflicts",
+    "Example": "git mergetool"
+  },
+  {
+    "ID": 28,
+    "Command": "git rebase",
+    "Category": "Branching",
+    "Description": "Reapply commits on top of another base tip",
+    "Example": "git rebase main"
+  },
+  {
+    "ID": 29,
+    "Command": "git cherry-pick",
+    "Category": "Branching",
+    "Description": "Apply the changes introduced by existing commits",
+    "Example": "git cherry-pick abc123"
+  },
+  {
+    "ID": 30,
+    "Command": "git stash",
+    "Category": "Branching",
+    "Description": "Stash changes in a dirty working directory away",
+    "Example": "git stash"
+  },
+  {
+    "ID": 31,
+    "Command": "git worktree",
+    "Category": "Branching",
+    "Description": "Manage multiple working trees for one repository",
+    "Example": "git worktree add ../wt feature"
+  },
+  {
+    "ID": 32,
+    "Command": "git tag",
+    "Category": "Branching",
+    "Description": "Create, list, delete, or verify tags",
+    "Example": "git tag -a v1.0.0 -m \"release\""
+  },
+  {
+    "ID": 33,
+    "Command": "git fetch",
+    "Category": "Remote",
+    "Description": "Download objects and refs from another repository",
+    "Example": "git fetch origin"
+  },
+  {
+    "ID": 34,
+    "Command": "git pull",
+    "Category": "Remote",
+    "Description": "Fetch from and integrate with another repository",
+    "Example": "git pull origin main"
+  },
+  {
+    "ID": 35,
+    "Command": "git push",
+    "Category": "Remote",
+    "Description": "Update remote refs along with associated objects",
+    "Example": "git push -u origin main"
+  },
+  {
+    "ID": 36,
+    "Command": "git remote",
+    "Category": "Remote",
+    "Description": "Manage the set of tracked repositories",
+    "Example": "git remote -v"
+  },
+  {
+    "ID": 37,
+    "Command": "git submodule",
+    "Category": "Remote",
+    "Description": "Initialize, update, or inspect submodules",
+    "Example": "git submodule update --init"
+  },
+  {
+    "ID": 38,
+    "Command": "git ls-remote",
+    "Category": "Remote",
+    "Description": "List references in a remote repository",
+    "Example": "git ls-remote origin"
+  },
+  {
+    "ID": 39,
+    "Command": "git bundle",
+    "Category": "Remote",
+    "Description": "Move objects and refs by archive file",
+    "Example": "git bundle create repo.bundle main"
+  },
+  {
+    "ID": 40,
+    "Command": "git reset",
+    "Category": "Undo",
+    "Description": "Reset the current HEAD to a specified state",
+    "Example": "git reset --hard HEAD"
+  },
+  {
+    "ID": 41,
+    "Command": "git restore",
+    "Category": "Undo",
+    "Description": "Restore working tree files or unstage changes",
+    "Example": "git restore --staged file.txt"
+  },
+  {
+    "ID": 42,
+    "Command": "git revert",
+    "Category": "Undo",
+    "Description": "Create a new commit that undoes existing commits",
+    "Example": "git revert HEAD"
+  },
+  {
+    "ID": 43,
+    "Command": "git clean",
+    "Category": "Undo",
+    "Description": "Remove untracked files from the working tree",
+    "Example": "git clean -fd"
+  },
+  {
+    "ID": 44,
+    "Command": "git apply",
+    "Category": "Undo",
+    "Description": "Apply a patch to files and to the index",
+    "Example": "git apply patch.diff"
+  },
+  {
+    "ID": 45,
+    "Command": "git config",
+    "Category": "Config",
+    "Description": "Get and set repository or global options",
+    "Example": "git config --global user.name \"Me\""
+  },
+  {
+    "ID": 46,
+    "Command": "git help",
+    "Category": "Config",
+    "Description": "Display help information about Git",
+    "Example": "git help commit"
+  },
+  {
+    "ID": 47,
+    "Command": "git rev-parse",
+    "Category": "Config",
+    "Description": "Pick out and massage parameters for other commands",
+    "Example": "git rev-parse HEAD"
+  },
+  {
+    "ID": 48,
+    "Command": "git version",
+    "Category": "Config",
+    "Description": "Display the version of Git that is installed",
+    "Example": "git --version"
+  },
+  {
+    "ID": 49,
+    "Command": "git gc",
+    "Category": "Config",
+    "Description": "Clean up unnecessary files and optimize the repository",
+    "Example": "git gc"
+  },
+  {
+    "ID": 50,
+    "Command": "git fsck",
+    "Category": "Config",
+    "Description": "Verify the connectivity and validity of objects",
+    "Example": "git fsck"
+  }
+]
