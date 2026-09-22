@@ -1,4 +1,4 @@
-export default function ScoreCard() {
+export default function GitCard() {
     return (
         <div></div>
     );
