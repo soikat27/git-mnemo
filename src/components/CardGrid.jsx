@@ -44,7 +44,7 @@ export default function CardGrid() {
 
     function updateGameState() {
         // 1. shuffle cards and update displayedCards state
-        const nextDisplayedCommands = shuffleCommands(allCommands);
+        const nextDisplayedCommands = shuffleCommands([...allCommands]);
         setDisplayedCommands(nextDisplayedCommands);
 
         // 2. update score
