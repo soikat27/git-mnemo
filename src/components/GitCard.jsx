@@ -1,8 +1,8 @@
 import "../styles/GitCard.css";
 
-export default function GitCard({ command, description }) {
+export default function GitCard({command, description, handleCardClick}) {
   return (
-    <div className="git-card">
+    <div className="git-card" onClick={handleCardClick}>
       <h4 className="git-card__command">{command}</h4>
       <p className="git-card__description">{description}</p>
     </div>

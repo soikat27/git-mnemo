@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import GitCard from "./GitCard.jsx";
 import "../styles/CardGrid.css";
 
 export default function CardGrid() {
-    const [commands, setCommands] = useState([]);
+    const [allCommands, setAllCommands] = useState([]);
+    const [displayedCommands, setDisplayedCommands] = useState([]);
 
     async function fetchCommands() {
         const url = "/commands.json";
@@ -29,27 +30,35 @@ export default function CardGrid() {
     useEffect(() => {
         async function getCommands() {
             try {
-                const allCommands = await fetchCommands();
-                const newCommands = shuffleCommands(allCommands);
-                setCommands(newCommands);
+                const nextAllCommands = await fetchCommands();
+                setAllCommands(nextAllCommands);
+                const nextDisplayedCommands = shuffleCommands(nextAllCommands);
+                setDisplayedCommands(nextDisplayedCommands);
             }
             catch(error) {
-                console.log(error);
-                alert("error");
+                alert(error);
             }
         }
         getCommands(); 
     }, []);
-    
+
+    function updateGameState() {
+        // 1. shuffle cards and update displayedCards state
+        const nextDisplayedCommands = shuffleCommands(allCommands);
+        setDisplayedCommands(nextDisplayedCommands);
+
+        // 2. update score
+    }
 
     return (
         <div className="card-grid">
             {
-                commands.map(command => (
+                displayedCommands.map(command => (
                     <div className="card-grid__cell" key={command.command}>
                         <GitCard
                             command={command.command}
                             description={command.description}
+                            handleCardClick={updateGameState}
                         />
                     </div>
                 ))
