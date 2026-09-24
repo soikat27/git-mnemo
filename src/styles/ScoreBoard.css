@@ -37,7 +37,7 @@
 }
 
 .score .digit {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.35rem;
   font-weight: 700;
   line-height: 1;
