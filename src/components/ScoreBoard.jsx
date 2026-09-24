@@ -13,7 +13,7 @@ export default function ScoreBoard({score, bestScore}) {
     
     return (
         <div className="score-board">
-            <div className="score current">
+            <div className="score">
                 <p>Score</p>
                 {formatScore(score).map((digit, i) => (
                     <span className="digit" key={i}>{digit}</span>

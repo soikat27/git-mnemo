@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export default function InfoDialog({btnName, className, title, body, tips=null, icon}) {
+export default function InfoDialog({btnName, title, body, tips=null, icon}) {
     const dialogRef = useRef(null);
     
     function openDialog() {
@@ -12,7 +12,7 @@ export default function InfoDialog({btnName, className, title, body, tips=null, 
 
     return (
         <div className="info-dialog">
-            <dialog className={className} ref={dialogRef}>
+            <dialog ref={dialogRef}>
                 <h2>{title}</h2>
                 <p className="line-item">{body}</p>
                 {tips && <p><span className="tip-label">Tips: </span>{tips}</p>}

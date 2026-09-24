@@ -56,7 +56,7 @@ export default function CardGrid({updateScore}) {
         if (clickedCommands.includes(cardId)) {
             const sadSound = sadRef.current;
             sadSound.currentTime = 0;
-            sadSound.volume = 0.7;
+            sadSound.volume = 1;
             sadSound.play();
 
             setClickedCommands([]);
