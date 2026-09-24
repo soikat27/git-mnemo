@@ -24,19 +24,25 @@ export default function GameArea() {
 
     return (
         <>
-            <dialog ref={dialogRef}>
-                <h1 className="logo">
-                    <span className="logo-git">git</span>
-                    <span className="logo-mnemo">Mnemo</span>
-                </h1>
-                <button 
-                    className="start-game" 
-                    onClick={() => {
-                        setIsGameOn(true);
-                        dialogRef.current.close();
-                    }}>
-                    Start Game
-                </button>
+            <dialog className="start-dialog" ref={dialogRef}>
+                <div className="start-dialog__inner">
+                    <div className="start-dialog__brand">
+                        <p className="start-dialog__welcome">Welcome to</p>
+                        <h1 className="logo">
+                            <span className="logo-git">git</span>
+                            <span className="logo-mnemo">Mnemo</span>
+                        </h1>
+                    </div>
+                    <button
+                        className="dialog-open start-game"
+                        onClick={() => {
+                            setIsGameOn(true);
+                            dialogRef.current.close();
+                        }}
+                    >
+                        Start Game
+                    </button>
+                </div>
             </dialog>
             
             {isGameOn && (
