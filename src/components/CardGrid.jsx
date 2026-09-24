@@ -2,6 +2,14 @@ import {useEffect, useState} from "react";
 import GitCard from "./GitCard.jsx";
 import "../styles/CardGrid.css";
 
+function getDisplayedCommands(commands) {
+    for (let i = commands.length-1; i > 0; i--) {
+        const j = Math.floor(Math.random()*(i+1));
+        [commands[i], commands[j]] = [commands[j], commands[i]];
+    }
+    return commands.slice(0, 15);
+}
+
 export default function CardGrid({updateScore}) {
     const [allCommands, setAllCommands] = useState([]);
     const [displayedCommands, setDisplayedCommands] = useState([]);
@@ -21,34 +29,23 @@ export default function CardGrid({updateScore}) {
         }));
         return commands;
     }
-    function shuffleCommands(commands) {
-        for (let i = commands.length-1; i > 0; i--) {
-            const j = Math.floor(Math.random()*(i+1));
-            [commands[i], commands[j]] = [commands[j], commands[i]];
-        }
-        return commands.slice(0, 15);
-    }
 
     useEffect(() => {
-        async function getCommands() {
+        async function initGameSate() {
             try {
                 const nextAllCommands = await fetchCommands();
                 setAllCommands(nextAllCommands);
-                const nextDisplayedCommands = shuffleCommands(nextAllCommands);
+                const nextDisplayedCommands = getDisplayedCommands(nextAllCommands);
                 setDisplayedCommands(nextDisplayedCommands);
             }
             catch(error) {
                 alert(error);
             }
         }
-        getCommands(); 
+        initGameSate(); 
     }, []);
 
     function updateGameState(cardId) {
-        // 0. shuffle cards and update displayedCards state
-        const nextDisplayedCommands = shuffleCommands([...allCommands]);
-        setDisplayedCommands(nextDisplayedCommands);
-
         // 1. if clicked a previously clicked card, reset
         if (clickedCommands.includes(cardId)) {
             setClickedCommands([]);
@@ -58,6 +55,10 @@ export default function CardGrid({updateScore}) {
             setClickedCommands(previous => [...previous, cardId]);
             updateScore();
         }
+
+        // 2. shuffle cards and update displayedCards state
+        const nextDisplayedCommands = getDisplayedCommands([...allCommands]);
+        setDisplayedCommands(nextDisplayedCommands);
     }
 
     return (
