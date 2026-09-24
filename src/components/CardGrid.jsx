@@ -49,7 +49,7 @@ export default function CardGrid({updateScore}) {
         // 1. if clicked a previously clicked card, reset
         if (clickedCommands.includes(cardId)) {
             setClickedCommands([]);
-            updateScore(0);
+            updateScore(true);
         }
         else {
             setClickedCommands(previous => [...previous, cardId]);
