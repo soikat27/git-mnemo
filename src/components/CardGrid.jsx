@@ -1,7 +1,6 @@
 import {useEffect, useState, useRef} from "react";
 import GitCard from "./GitCard.jsx";
 import "../styles/CardGrid.css";
-import backgroundMusicFile from "../assets/audio/bg-music.mp3";
 import happySoundFile from "../assets/audio/happy-sound.mp3";
 import sadSoundFile from "../assets/audio/sad-sound.mp3";
 
@@ -50,20 +49,7 @@ export default function CardGrid({updateScore}) {
         }
         initGameSate(); 
     }, []);
-    useEffect(() => {
-        // effects:
-        // 1. start bg-music
-        const bgMusic = new Audio(backgroundMusicFile);
-        bgMusic.volume = 0.65;
-        bgMusic.loop = true;
-        bgMusic.currentTime = 0;
-        bgMusic.play();
-
-        //cleanup
-        return (() => {
-            bgMusic.pause();
-        });
-    }, []);
+    
 
     function updateGameState(cardId) {
         // 1. if clicked a previously clicked card, reset

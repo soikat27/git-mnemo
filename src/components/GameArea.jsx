@@ -1,5 +1,6 @@
 import CardGrid from "./CardGrid.jsx";
 import ScoreBoard from "./ScoreBoard.jsx";
+import backgroundMusicFile from "../assets/audio/bg-music.mp3";
 import "../styles/GameArea.css";
 import { useEffect, useRef, useState } from "react";
 
@@ -21,6 +22,16 @@ export default function GameArea() {
         else
             setScore(prevScore => prevScore+1);
     }
+    function startGame() {
+        setIsGameOn(true);
+        dialogRef.current.close();
+
+        const bgMusic = new Audio(backgroundMusicFile);
+        bgMusic.volume = 0.65;
+        bgMusic.loop = true;
+        bgMusic.currentTime = 0;
+        bgMusic.play();
+    }
 
     return (
         <>
@@ -33,13 +44,7 @@ export default function GameArea() {
                             <span className="logo-mnemo">Mnemo</span>
                         </h1>
                     </div>
-                    <button
-                        className="dialog-open start-game"
-                        onClick={() => {
-                            setIsGameOn(true);
-                            dialogRef.current.close();
-                        }}
-                    >
+                    <button className="dialog-open start-game" onClick={startGame}>
                         Start Game
                     </button>
                 </div>
