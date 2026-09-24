@@ -2,9 +2,10 @@ import {useEffect, useState} from "react";
 import GitCard from "./GitCard.jsx";
 import "../styles/CardGrid.css";
 
-export default function CardGrid() {
+export default function CardGrid({updateScore}) {
     const [allCommands, setAllCommands] = useState([]);
     const [displayedCommands, setDisplayedCommands] = useState([]);
+    const [clickedCommands, setClickedCommands] = useState([]);
 
     async function fetchCommands() {
         const url = "/commands.json";
@@ -14,6 +15,7 @@ export default function CardGrid() {
         const data = await response.json();
 
         const commands = data.map(command => ({
+            id: command.ID,
             command: command.Command, 
             description: command.Description
         }));
@@ -42,23 +44,32 @@ export default function CardGrid() {
         getCommands(); 
     }, []);
 
-    function updateGameState() {
-        // 1. shuffle cards and update displayedCards state
+    function updateGameState(cardId) {
+        // 0. shuffle cards and update displayedCards state
         const nextDisplayedCommands = shuffleCommands([...allCommands]);
         setDisplayedCommands(nextDisplayedCommands);
 
-        // 2. update score
+        // 1. if clicked a previously clicked card, reset
+        if (clickedCommands.includes(cardId)) {
+            setClickedCommands([]);
+            updateScore(0);
+        }
+        else {
+            setClickedCommands(previous => [...previous, cardId]);
+            updateScore();
+        }
     }
 
     return (
         <div className="card-grid">
             {
                 displayedCommands.map(command => (
-                    <div className="card-grid__cell" key={command.command}>
+                    <div className="card-grid__cell" key={command.id}>
                         <GitCard
+                            id={command.id}
                             command={command.command}
                             description={command.description}
-                            handleCardClick={updateGameState}
+                            updateGameState={updateGameState}
                         />
                     </div>
                 ))

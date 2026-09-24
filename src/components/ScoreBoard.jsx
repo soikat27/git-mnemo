@@ -1,10 +1,6 @@
-import { useState } from "react";
 import "../styles/ScoreBoard.css";
 
-export default function ScoreBoard() {
-    const [score, setScore] = useState(0);
-    const [bestScore, setBestScore] = useState(0);
-
+export default function ScoreBoard({score, bestScore}) {
     function formatScore(score) {
         const digits = [];
         const formated = String(score).padStart(2, "0");
