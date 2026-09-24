@@ -1,6 +1,9 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState, useRef} from "react";
 import GitCard from "./GitCard.jsx";
 import "../styles/CardGrid.css";
+import backgroundMusicFile from "../assets/audio/bg-music.mp3";
+import happySoundFile from "../assets/audio/happy-sound.mp3";
+import sadSoundFile from "../assets/audio/sad-sound.mp3";
 
 function getDisplayedCommands(commands) {
     for (let i = commands.length-1; i > 0; i--) {
@@ -14,6 +17,9 @@ export default function CardGrid({updateScore}) {
     const [allCommands, setAllCommands] = useState([]);
     const [displayedCommands, setDisplayedCommands] = useState([]);
     const [clickedCommands, setClickedCommands] = useState([]);
+
+    const happyRef = useRef(new Audio(happySoundFile));
+    const sadRef = useRef(new Audio(sadSoundFile));
 
     async function fetchCommands() {
         const url = "/commands.json";
@@ -44,14 +50,38 @@ export default function CardGrid({updateScore}) {
         }
         initGameSate(); 
     }, []);
+    useEffect(() => {
+        // effects:
+        // 1. start bg-music
+        const bgMusic = new Audio(backgroundMusicFile);
+        bgMusic.volume = 0.65;
+        bgMusic.loop = true;
+        bgMusic.currentTime = 0;
+        bgMusic.play();
+
+        //cleanup
+        return (() => {
+            bgMusic.pause();
+        });
+    }, []);
 
     function updateGameState(cardId) {
         // 1. if clicked a previously clicked card, reset
         if (clickedCommands.includes(cardId)) {
+            const sadSound = sadRef.current;
+            sadSound.currentTime = 0;
+            sadSound.volume = 0.7;
+            sadSound.play();
+
             setClickedCommands([]);
             updateScore(true);
         }
         else {
+            const happySound = happyRef.current;
+            happySound.currentTime = 0;
+            happySound.volume = 0.7;
+            happySound.play();
+
             setClickedCommands(previous => [...previous, cardId]);
             updateScore();
         }
