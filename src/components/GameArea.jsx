@@ -50,12 +50,14 @@ export default function GameArea() {
                 </div>
             </dialog>
             
-            {isGameOn && (
-                <div className="game-area">
-                    <ScoreBoard score={score} bestScore={bestScore} />
-                    <CardGrid updateScore={updateScore} />
-                </div>
-            )}
+            <div className="game-area">
+                {isGameOn && (
+                    <>
+                        <ScoreBoard score={score} bestScore={bestScore} />
+                        <CardGrid updateScore={updateScore} />
+                    </>
+                )}
+            </div>
         </>
         
     );
