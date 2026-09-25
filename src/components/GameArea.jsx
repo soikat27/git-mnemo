@@ -4,6 +4,11 @@ import backgroundMusicFile from "../assets/audio/bg-music.mp3";
 import "../styles/GameArea.css";
 import { useEffect, useRef, useState } from "react";
 
+/**
+ * Play surface: start modal, score / best, and background music on Start.
+ * Owns game-on state and mounts ScoreBoard + CardGrid when the round begins.
+ * @returns {JSX.Element}
+ */
 export default function GameArea() {
     const [score, setScore] = useState(0);
     const [bestScore, setBestScore] = useState(0);
@@ -14,6 +19,11 @@ export default function GameArea() {
         dialogRef.current.showModal();
     }, []);
 
+    /**
+     * Bump score on a unique pick, or reset and update best when the round ends.
+     * @param {boolean} [isTurnOver=false] - When true, reset score and refresh best.
+     * @returns {void}
+     */
     function updateScore(isTurnOver=false) {
         if (isTurnOver == true) {
             setScore(0);
@@ -22,6 +32,11 @@ export default function GameArea() {
         else
             setScore(prevScore => prevScore+1);
     }
+
+    /**
+     * Close the start modal, show the board, and start looping background music.
+     * @returns {void}
+     */
     function startGame() {
         setIsGameOn(true);
         dialogRef.current.close();

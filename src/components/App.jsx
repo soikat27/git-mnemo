@@ -5,6 +5,11 @@ import githubIcon from '../assets/icons/github-icon.svg';
 import InfoDialog from './InfoDialog.jsx';
 import GameArea from './GameArea.jsx';
 
+/**
+ * App shell: header, Instruction / Value dialogs, and footer.
+ * Mounts GameArea as the main play surface.
+ * @returns {JSX.Element}
+ */
 export default function App() {
     return (
         <div className="app">

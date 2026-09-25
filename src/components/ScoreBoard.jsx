@@ -1,6 +1,17 @@
 import "../styles/ScoreBoard.css";
 
+/**
+ * Displays current score and best score for the session.
+ * @param {number} score - Current round score.
+ * @param {number} bestScore - Best score this session.
+ * @returns {JSX.Element}
+ */
 export default function ScoreBoard({score, bestScore}) {
+    /**
+     * Pad to two digits and split into characters for display.
+     * @param {number} score - Score value to format.
+     * @returns {string[]} Digit characters (length 2).
+     */
     function formatScore(score) {
         const digits = [];
         const formated = String(score).padStart(2, "0");
